@@ -1,0 +1,52 @@
+/* =================== Homepage content ================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sections Headings */
+.section-heading {
+  margin-left: 1rem;
+}
+
+/* Main sections on the home page*/
+.home-section {
+  margin: 5rem auto;
+  width: 90%;
+}
+
+/* Cards on homepage */
+.home-card {
+  margin-bottom: 1rem;
+}
+
+/* Cards' body */
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* Cards' text */
+.card-text {
+  line-height: 2rem;
+  margin-top: 1.2rem;
+}
+
+/* Accordion buttons on homepage */
+.accordion-button:not(.collapsed) {
+  color: var(--bs-success);
+}
+
+/* Accordion body */
+.faq-info {
+  display: block;
+  line-height: 1.8;
+}
