@@ -13,4 +13,3 @@ function card($head, $subhead, $bg_color, $txt_color, $output)
   ";
     return $card;
 }
-?>

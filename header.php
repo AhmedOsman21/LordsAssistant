@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/<?php echo $style?>.css">
+    <link rel="stylesheet" href="styles/<?php echo $style ?>.css">
     <title>Lords Assistant</title>
 </head>
-
-

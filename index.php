@@ -1,6 +1,6 @@
-<?php $style="style"?>
+<?php $style = "style" ?>
 
-<?php include "header.php"?>
+<?php include "header.php" ?>
 
 <body>
 
@@ -60,7 +60,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body faq-info">
-                    This application meant to help me and other busy/lazy lords mobile gamers to know the minimum amount of work they can do to accomplish points for a particular event.
+                        This application meant to help me and other busy/lazy lords mobile gamers to know the minimum amount of work they can do to accomplish points for a particular event.
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                     <div class="accordion-body faq-info">
-                      With  the <a href="timezone.php">Timezone</a> tool which is in the tools dropmenu, you can know your friends time right now in your local timezone, so that you can know what's the time in your guild's country.
+                        With the <a href="timezone.php">Timezone</a> tool which is in the tools dropmenu, you can know your friends time right now in your friends' local time based on the capital timezone, so that you can know what's the time in your guild's country.
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
     </div>
 
     <!-- Footer -->
-		<?php include "footer.php"?>
+    <?php include "footer.php" ?>
 </body>
 
 </html>
