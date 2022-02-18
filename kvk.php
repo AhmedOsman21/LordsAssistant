@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         <!-- Calculator Form -->
         <div class="row form-container">
-            <form class="row g-3 mb-5" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+            <form class="row g-3 mb-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                 <!-- Total Points -->
                 <div class="col col-sm-12 col col-sm-12-sm-12 points">

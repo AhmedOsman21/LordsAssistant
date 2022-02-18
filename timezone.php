@@ -15,10 +15,10 @@ function timezones_downlist($name)
         $city = strtr($city, '/', ' - ');
         $tz_cities[$value] = $city;
     }
-    
+
     // Sort cities alphabetically to make timezone list user-friendly.
     asort($tz_cities);
-    
+
     $select = "<select class='form-select' aria-label='Default select example' id='timezone' name='$name' autofocus>";
     echo $select;
     echo "<option value=''>--</option>";
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $local_area .= $tz_seperator[1];
                 break;
             case ($z_len > 2):
-                $local_area .= $tz_seperator[$tz_len - 2] .", ". $tz_seperator[$tz_len - 1];
+                $local_area .= $tz_seperator[$tz_len - 2] . ", " . $tz_seperator[$tz_len - 1];
         }
         // if ($tz_len === 2) {
         //     $local_area .= $tz_seperator[1];
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         <!-- Calculator Form -->
         <div class="row form-container">
-            <form class="row g-3 mb-5" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+            <form class="row g-3 mb-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                 <!-- Total Points -->
                 <div class="col col-sm-12 col col-sm-12-sm-12 points">
