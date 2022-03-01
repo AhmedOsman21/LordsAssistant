@@ -23,7 +23,7 @@
                         </a>
                         <!-- <li><hr class="dropdown-divider"></li> -->
                         <a class="dropdown-item" href="timezone.php">
-                            <li>Timezone</li>
+                            <?php echo "<li>Timezone</li>" ?>
                         </a>
                     </ul>
                 </li>
@@ -43,5 +43,3 @@
         </div>
     </div>
 </nav>
-
-<?php ?>
