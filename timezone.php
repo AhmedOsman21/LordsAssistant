@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             case ($tz_len === 2):
                 $local_area .= $tz_seperator[1];
                 break;
-            case ($z_len > 2):
+            case ($tz_len > 2):
                 $local_area .= $tz_seperator[$tz_len - 2] . ", " . $tz_seperator[$tz_len - 1];
         }
         // if ($tz_len === 2) {
@@ -71,8 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
         // Output Card 
-        $area_format = strtr($target_tz, '/', ', ');
-        // $area_format = str_replace("/", ", ", $target_tz);
+        $area_format = str_replace("/", ", ", $target_tz);
         $card_head = "Time in <strong style='color: var(--bs-white)'>$city_name</strong>";
         $card_subhead = "<span style='color: var(--bs-white)'>$tz_time</span>";
         $card_content = "<span style='color: var(--bs-white)'>$tz_date <br>" . $area_format . "</span>";

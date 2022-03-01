@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card home-card">
-                    <div class="card-body home-card">
+                    <div class="card-body">
                         <h4 class="card-title">Calculate KVK Points</h4>
                         <p class="card-text">Know how much resources you have gather in order to complete the KVK Points.</p>
                         <a href="kvk.php" class="btn btn-success">KVK Calculator</a>

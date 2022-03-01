@@ -11,7 +11,7 @@
                 </li>
 
                 <li class="nav-item dropdown main-nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,12 +29,12 @@
                 </li>
 
                 <li class="nav-item main-nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link active" href="contact.php">Contact</a>
                 </li>
 
 
                 <li class="nav-item main-nav-item">
-                    <a class="nav-link" href="about.php">About</a>
+                    <a class="nav-link active" href="about.php">About</a>
                 </li>
 
 
@@ -43,3 +43,4 @@
         </div>
     </div>
 </nav>
+
