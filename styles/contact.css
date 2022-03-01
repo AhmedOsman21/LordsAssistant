@@ -1,5 +1,79 @@
+:root {
+    --form-bg: #d1e7d8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    padding: 1rem;
+}
+
+.field {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.field-icon {
+    position: absolute;
+    bottom: .6rem;
+    right: 1.5rem;
+}
+
+.description {
+    width: 90%;
+    font-size: small;
+    font-weight: lighter;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container {
+    width: 90%;
+    padding: 2rem;
+    margin: 0 auto 5rem;
+    background-color: var(--form-bg);
+    box-shadow: #26394d 0 20px 30px -10px;
+    position: relative;
+}
+
+.options {
+    margin-left: 1%;
+}
+
+.form-check {
+    margin-bottom: 2%;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 2rem;
+}
+
+.submit-btn {
+    width: 8rem;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+}
+
+p.err {
+    position: absolute;
+    color: red;
+    font-size:small;
+}
+
+span.err {
+    color: red;
 }
