@@ -16,12 +16,6 @@
             </div>
 
             <button type="button" class="btn btn-lg btn-outline-success" onclick="scroller()">What's Our Story</button>
-            <script>
-                let scroller = function() {
-                    let body = document.querySelector("#about-body");
-                    body.scrollIntoView();
-                }
-            </script>
         </div>
         <div class="container-fluid main-container" id="about-body">
 
@@ -101,6 +95,7 @@
 
 
     <?php require "footer.php" ?>
+    <script src="js/about.js"></script>
 </body>
 
 </html>
