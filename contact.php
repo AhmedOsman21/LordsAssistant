@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
         $mail->Subject = $subject;
-        $mailHeader = "<br>\n<br>User Info: <br> Email: $email<br>Phone Number: $phone<br>Name: $name<br> <br> <br>";
+        $mailHeader = "<br>\n<br><h4>User Info:</h4> <br> Email: $email<br>Phone Number: $phone<br>Name: $name<br> <br> <br><h2>Message:</h2>";
         $mail->Body    =  $mailHeader . nl2br($msg);
 
         try {
