@@ -47,14 +47,14 @@ for (const radio of radioElems) {
 
             for (let i = 1; i <= qNum; i++) {
                 let opt = document.createElement("option");
-                opt.setAttribute("value", `"${i}"`);
+                opt.setAttribute("value", `${i}`);
                 opt.textContent = i;
                 selectElem.appendChild(opt);
             }
 
         }
-        
-        
+
+
 
     });
 }

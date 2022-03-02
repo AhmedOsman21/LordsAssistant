@@ -64,18 +64,15 @@ require_once "output_card.php";
 
 
 // Card Variables.
-$head = "";
-$subhead = "";
-$card_color = "";
-$text_color = "";
+$head = $subhead = $card_color = $text_color = "";
 
 
 // Intiallize Form Variables
 $cur_pts = "";
 $req_pts = "";
-$guild_level = 'master';
-$complete_quests = "";
+$complete_quests = 0;
 $include_bonus = false;
+$total_quests = 10;
 
 
 // Check Request Method
@@ -84,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   if (isset($_POST['cur_pts']) && isset($_POST['req_pts']) && isset($_POST['guild_level'])) {
     // $cur_pts = (int) filter_var($_POST['cur_pts'], FILTER_SANITIZE_NUMBER_INT);
     // $req_pts = (int) filter_var($_POST['req_pts'], FILTER_SANITIZE_NUMBER_INT);
-    // $guild_level = $_POST['guild_level'];
+    $guild_level = $_POST['guild_level'];
     $cur_pts = $_POST['cur_pts'];
     $req_pts = $_POST['req_pts'];
     $complete_quests = (int) $_POST['complete_quests'];
@@ -116,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
           $err = card("Congratulations!", "Nothing to worry about.", "bg-dark", "text-white", err('completed'));
         }
       }
+
 
       // Check Guild Level & Set total tasks according to it.
       switch ($guild_level):
