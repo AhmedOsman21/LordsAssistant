@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Page Content -->
     <div class="container main-container">
         <div class="row mt-5 mb-3 heading">
-            <h2><span><img src="images/kvk/kvk.webp" alt="kingdom clash icon"></span> Kingdom Clash Calculator</h2>
+            <h2><span><img src="images/kvk/kvk.png" alt="kingdom clash icon"></span> Kingdom Clash Calculator</h2>
         </div>
 
         <!-- Notificaiton -->
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="food" value="food">
                                 <label class="form-check-label" for="food">
-                                    <span><img src="images/kvk/food.webp" alt="Food icon" width='20' height='20'></span>
+                                    <span><img src="images/kvk/food.png" alt="Food icon" width='20' height='20'></span>
                                     Food
                                 </label>
                             </div>
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="stone" value="stone">
                                 <label class="form-check-label" for="stone">
-                                    <span><img src="images/kvk/stone.webp" alt="Stone icon" width='20' height='20'></span>
+                                    <span><img src="images/kvk/stone.png" alt="Stone icon" width='20' height='20'></span>
                                     Stone
                                 </label>
                             </div>
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="timber" value="timber">
                                 <label class="form-check-label" for="timber">
-                                    <span><img src="images/kvk/timber.webp" alt="Timber icon" width='20' height='20'></span>
+                                    <span><img src="images/kvk/timber.png" alt="Timber icon" width='20' height='20'></span>
                                     Timber
                                 </label>
                             </div>
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="ore" value="ore">
                                 <label class="form-check-label" for="ore">
-                                    <span><img src="images/kvk/ore.webp" alt="Ore icon" width='20' height='20'></span>
+                                    <span><img src="images/kvk/ore.png" alt="Ore icon" width='20' height='20'></span>
                                     Ore
                                 </label>
                             </div>
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="gold" value="gold" checked>
                                 <label class="form-check-label" for="gold">
-                                    <span><img src="images/kvk/gold.webp" alt="Gold icon" width='20' height='20'></span>
+                                    <span><img src="images/kvk/gold.png" alt="Gold icon" width='20' height='20'></span>
                                     Gold
                                 </label>
                             </div>
