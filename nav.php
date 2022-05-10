@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Lords Assistant</a>
+        <a class="navbar-brand" href="home">Lords Assistant</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-sm-0 nav-items">
                 <li class="nav-item main-nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
 
                 <li class="nav-item dropdown main-nav-item">
@@ -15,26 +15,26 @@
                         Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="gf.php">
+                        <a class="dropdown-item" href="gf">
                             <li>Gf Points</li>
                         </a>
-                        <a class="dropdown-item" href="kvk.php">
+                        <a class="dropdown-item" href="kvk">
                             <li>Kvk Points</li>
                         </a>
                         <!-- <li><hr class="dropdown-divider"></li> -->
-                        <a class="dropdown-item" href="timezone.php">
+                        <a class="dropdown-item" href="timezone">
                             <?php echo "<li>Timezone</li>" ?>
                         </a>
                     </ul>
                 </li>
 
                 <li class="nav-item main-nav-item">
-                    <a class="nav-link active" href="contact.php">Contact</a>
+                    <a class="nav-link active" href="contact">Contact</a>
                 </li>
 
 
                 <li class="nav-item main-nav-item">
-                    <a class="nav-link active" href="about.php">About</a>
+                    <a class="nav-link active" href="about">About</a>
                 </li>
 
 
@@ -43,4 +43,3 @@
         </div>
     </div>
 </nav>
-
