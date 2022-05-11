@@ -11,7 +11,7 @@
                 </li>
 
                 <li class="nav-item dropdown main-nav-item">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
