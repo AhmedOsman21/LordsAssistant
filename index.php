@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Calculate GF Points</h4>
                         <p class="card-text">Know how many points on each remain task you have to make to achieve the required points.</p>
-                        <a href="gf" class="btn btn-success">Guild Fest Calculator</a>
+                        <a href="tools/gf" class="btn btn-success">Guild Fest Calculator</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Calculate KVK Points</h4>
                         <p class="card-text">Know how much resources you have gather in order to complete the KVK Points.</p>
-                        <a href="kvk" class="btn btn-success">KVK Calculator</a>
+                        <a href="tools/kvk" class="btn btn-success">KVK Calculator</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                     <div class="accordion-body faq-info">
-                        With the <a href="timezone">Timezone</a> tool which is in the tools dropmenu, you can know your friends time right now in your friends' local time based on the capital timezone, so that you can know what's the time in your guild's country.
+                        With the <a href="tools/timezone">Timezone</a> tool which is in the tools dropmenu, you can know your friends time right now in your friends' local time based on the capital timezone, so that you can know what's the time in your guild's country.
                     </div>
                 </div>
             </div>
