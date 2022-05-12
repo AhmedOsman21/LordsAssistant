@@ -1,11 +1,11 @@
 <?php $style = "style" ?>
 
-<?php include "header.php" ?>
+<?php include "include/header.php" ?>
 
 <body>
 
     <!-- Header -->
-    <?php include "nav.php" ?>
+    <?php include "include/nav.php" ?>
 
     <!-- Home Sections -->
     <div class="container home-section">
@@ -80,7 +80,7 @@
     </div>
 
     <!-- Footer -->
-    <?php include "footer.php" ?>
+    <?php include "include/footer.php" ?>
 </body>
 
 </html>
