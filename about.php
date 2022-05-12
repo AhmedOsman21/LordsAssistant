@@ -78,7 +78,7 @@
                 <p>I think it's obvious that this app is designed for free 2 play gamers, since if you're a pay 2 play player, you can finish any of these requirements easily within a short time.</p>
                 <h5>But you still can use it</h5>
                 <p>In fact, the application can be useful for pay 2 play gamers as well, because, sometimes p2p players have to gather resources, when they are not safe to fight.</p>
-                <p>As well as using the <a href="timezone">timezone tool</a>, it's for everyone, even for non-players at all.</p>
+                <p>As well as using the <a href="tools/timezone">timezone tool</a>, it's for everyone, even for non-players at all.</p>
             </section>
 
 
