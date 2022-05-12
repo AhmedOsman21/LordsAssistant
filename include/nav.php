@@ -18,14 +18,14 @@
                         Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?php echo urlCheck("gf")?>">
+                        <a class="dropdown-item" href="<?php echo urlCheck("tools/gf")?>">
                             <li>Gf Points</li>
                         </a>
-                        <a class="dropdown-item" href="<?php echo urlCheck("kvk")?>">
+                        <a class="dropdown-item" href="<?php echo urlCheck("tools/kvk")?>">
                             <li>Kvk Points</li>
                         </a>
                         <!-- <li><hr class="dropdown-divider"></li> -->
-                        <a class="dropdown-item" href="<?php echo urlCheck("timezone")?>">
+                        <a class="dropdown-item" href="<?php echo urlCheck("tools/timezone")?>">
                             <?php echo "<li>Timezone</li>" ?>
                         </a>
                     </ul>
