@@ -323,7 +323,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   </div>
   
   <?php require "../include/footer.php" ?>
-  <script src="js/gf.js"></script>
+  <script src="../js/gf.js"></script>
 </body>
 
 </html>
