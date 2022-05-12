@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Page Content -->
     <div class="container main-container">
         <div class="row mt-5 mb-3 heading">
-            <h2><span><img src="images/timezone/time_icon.png" alt="time icon" width="35" height="35"></span> Timezone</h2>
+            <h2><span><img src="<?=urlCheck("images/timezone/time_icon.png")?>" alt="time icon" width="35" height="35"></span> Timezone</h2>
         </div>
 
         <!-- Notificaiton -->
