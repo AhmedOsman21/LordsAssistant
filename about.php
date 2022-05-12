@@ -1,9 +1,9 @@
 <?php $style = 'about' ?>
 
-<?php include "header.php" ?>
+<?php include "include/header.php" ?>
 
 <body>
-    <?php include "nav.php" ?>
+    <?php include "include/nav.php" ?>
 
     <!-- Page Content -->
     <div class="page-content">
@@ -94,7 +94,7 @@
 
 
 
-    <?php require "footer.php" ?>
+    <?php require "include/footer.php" ?>
     <script src="js/about.js"></script>
 </body>
 
