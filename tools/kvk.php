@@ -67,12 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <?php $style = 'forms' ?>
 
 <!-- Header -->
-<?php include "header.php" ?>
+<?php include "../include/header.php" ?>
 
 <!-- Navbar -->
 
 <body>
-    <?php include "nav.php" ?>
+    <?php include "../include/nav.php" ?>
 
 
 
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     </div>
 
-    <?php require "footer.php" ?>
+    <?php require "../include/footer.php" ?>
 </body>
 
 </html>
