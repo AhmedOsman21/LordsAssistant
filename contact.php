@@ -21,7 +21,7 @@ require "autoloader.php";
 require "vendor/autoload.php";
 
 // Import Output Card
-require "output_card.php";
+require "tools/output_card.php";
 
 // Object to keep value in input fields.
 $inp_val = new ValueKeeper();
