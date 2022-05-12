@@ -108,10 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
 
-<?php include "header.php" ?>
+<?php include "include/header.php" ?>
 
 <body>
-    <?php include "nav.php" ?>
+    <?php include "include/nav.php" ?>
 
 
     <div class="container main-container">
@@ -190,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         </div>
     </div>
 
-    <?php require "footer.php" ?>
+    <?php require "include/footer.php" ?>
 </body>
 
 </html>
