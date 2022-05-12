@@ -1,5 +1,4 @@
 <?php
-
 // Make timezone downlists.
 function timezones_downlist($name)
 {
@@ -31,9 +30,6 @@ function timezones_downlist($name)
 }
 
 
-
-
-
 // Include output card file to import Card Function.
 include "output_card.php";
 
@@ -57,18 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             case ($tz_len > 2):
                 $local_area .= $tz_seperator[$tz_len - 2] . ", " . $tz_seperator[$tz_len - 1];
         }
-        // if ($tz_len === 2) {
-        //     $local_area .= $tz_seperator[1];
-        // } else if ($tz_len > 2) {
-        //     $local_area .= $tz_seperator[$tz_len - 2] .", ". $tz_seperator[$tz_len - 1];
-        // }
         $city_name = $local_area;
         // Set timezone to the desired city.
         date_default_timezone_set($target_tz);
         // Get date and time.
         $tz_date = date("l d F");
         $tz_time = date("h:i A");
-
 
         // Output Card 
         $area_format = str_replace("/", ", ", $target_tz);
@@ -83,21 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 ?>
 
-
-
 <!-- StyleSheet Name -->
 <?php $style = 'forms' ?>
-
-<?php include "header.php" ?>
+<?php include "../include/header.php" ?>
 
 <body>
-    <?php include "nav.php" ?>
-
-
-
-
-
-
+    <?php include "../include/nav.php" ?>
 
     <!-- Page Content -->
     <div class="container main-container">
@@ -141,23 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <?php require "footer.php" ?>
-
+    <?php require "../include/footer.php" ?>
 </body>
 
 </html>
