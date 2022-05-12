@@ -1,5 +1,5 @@
 <?php
-include "link_checker.php";
+// include_once "link_checker.php";
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
