@@ -7,6 +7,8 @@ abstract class Validation {
 
 // Class to clean input data & validate it
 class Validator extends Validation {
+    public $string_pattern = "/^[A-z\s]*$/";
+    public $phone_pattern = "/^(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?$/";
 
     /** 
      * Validate input fields based on it's input type to prevent XSS attacks
@@ -16,12 +18,9 @@ class Validator extends Validation {
      * @return bool Whether the input value is valid or not
      */
     public function validate(string $value, string $type = ""): bool {
-        $string_pattern = "/^[A-z\s]*$/";
-        $phone_pattern = "/^(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?$/";
         $result = false;
 
-
-        if (($type === "name") && preg_match($string_pattern, $value)) {
+        if (($type === "name") && preg_match($this->string_pattern, $value)) {
             $result = true;
 
             // Valid E-mail
@@ -29,7 +28,7 @@ class Validator extends Validation {
             $result = true;
 
             // Valid Phone Number
-        } elseif ($type === "phone" && preg_match($phone_pattern, $value)) {
+        } elseif ($type === "phone" && preg_match($this->phone_pattern, $value)) {
             $result = true;
         }
 
