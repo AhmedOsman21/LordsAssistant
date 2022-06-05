@@ -1,7 +1,7 @@
-<!-- Stylesheet Name -->
-<?php $style = 'contact' ?>
-
 <?php
+
+// Stylesheet Name
+$style = 'contact';
 
 // Mailer CLasses & Namespaces.
 use PHPMailer\PHPMailer\PHPMailer;
