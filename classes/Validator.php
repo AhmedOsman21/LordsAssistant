@@ -29,5 +29,16 @@ class Validator extends Validation {
     protected function clean_input($input) {
         return trim(stripslashes(htmlspecialchars($input)));
     }
-    
+
+
+    /**
+    * Format name to be first letter of each name capitalized
+    * @param string $name
+    *
+    * @return string
+    */
+    protected function format_name($name) {
+        return ucwords($name);
+    }
+
 }
