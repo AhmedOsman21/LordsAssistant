@@ -20,7 +20,7 @@ class Validator extends Validation {
     public function validate(string $value, string $type = ""): bool {
         $result = false;
 
-        if (($type === "name") && preg_match($this->string_pattern, $value)) {
+        if (($type === "name") && preg_match(static::$string_pattern, $value)) {
             $result = true;
 
             // Valid E-mail
@@ -28,7 +28,7 @@ class Validator extends Validation {
             $result = true;
 
             // Valid Phone Number
-        } elseif ($type === "phone" && preg_match($this->phone_pattern, $value)) {
+        } elseif ($type === "phone" && preg_match(static::$phone_pattern, $value)) {
             $result = true;
         }
 
