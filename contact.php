@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $name_err = "Name field is required.";
     } elseif (!$validator->validate($_POST['full_name'], "name")) {
         $name_err = "Please type a valid name.";
-    } elseif (strlen($_POST['full_name']) < 5 ) {
+    } elseif (strlen($_POST['full_name']) < 8 ) {
         $name_err = "Enter your full name please.";
     } else {
         $name = $validator->clean_input($_POST['full_name']);
