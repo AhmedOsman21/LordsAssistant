@@ -7,8 +7,8 @@ abstract class Validation {
 
 // Class to clean input data & validate it
 class Validator extends Validation {
-    public $string_pattern = "/^[A-z\s]*$/";
-    public $phone_pattern = "/^(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?$/";
+    public static $string_pattern = "/^[A-z\s]*$/";
+    public static $phone_pattern = "/^(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?$/";
 
     /** 
      * Validate input fields based on it's input type to prevent XSS attacks
