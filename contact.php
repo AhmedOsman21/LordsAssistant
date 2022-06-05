@@ -26,6 +26,8 @@ require "tools/output_card.php";
 // Object to keep value in input fields.
 $inp_val = new ValueKeeper();
 
+// Instantiate object to validate input.
+$validator = new Validator;
 
 // Determine if request method is post.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
