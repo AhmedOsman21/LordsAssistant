@@ -29,6 +29,13 @@ $inp_val = new ValueKeeper();
 // Instantiate object to validate input.
 $validator = new Validator;
 
+
+// Instantiate input variables
+$name = $subject = $email = $phone = $msg = "";
+
+// Instantiate errors variables
+$name_err = $subject_err = $email_err = $phone_err = $msg_err = "";
+
 // Determine if request method is post.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $name = $_POST['full_name'];
