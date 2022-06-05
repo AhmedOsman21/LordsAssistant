@@ -29,11 +29,14 @@ $inp_val = new ValueKeeper();
 // Instantiate object to validate input.
 $validator = new Validator;
 
-// Instantiate input variables
+// Initialize input variables
 $name = $subject = $email = $phone = $msg = "";
 
-// Instantiate errors variables
+// Initialize errors variables
 $name_err = $subject_err = $email_err = $phone_err = $msg_err = "";
+
+// Intialize output variable
+$output = "";
 
 
 // Determine if request method is post.
@@ -137,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         <!-- Result -->
         <div class="result">
-            <?= isset($output) ? $ouput : NULL?>
+            <?php if (isset($output)) {echo $output;} ?>
         </div>
 
 
