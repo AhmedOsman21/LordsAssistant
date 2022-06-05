@@ -23,9 +23,6 @@ require "vendor/autoload.php";
 // Import Output Card
 require "tools/output_card.php";
 
-// Object to keep value in input fields.
-$inp_val = new ValueKeeper();
-
 // Instantiate object to validate input.
 $validator = new Validator;
 
@@ -152,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/user.png" alt="User Icon" width="20" height="20"></span>
                     <label for="full_name" class="form-label">Full Name <span class="err">*</span></label>
-                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Your Name" value="<?= $inp_val->keepVals('full_name') ?>">
+                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Your Name" value="<?= ValueKeeper::keepVals('full_name') ?>">
                     <p class='err'> <?= $name_err ?> </p>
                 </div>      
                 
@@ -160,14 +157,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/subject.png" alt="User Icon" width="20" height="20"></span>
                     <label for="subject" class="form-label">Subject </label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="<?= $inp_val->keepVals('subject') ?>">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="<?= ValueKeeper::keepVals('subject') ?>">
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/mail.png" alt="Email Icon" width="20" height="20"></span>
                     <label for="email" class="form-label">Email <span class="err">*</span></label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="<?= $inp_val->keepVals('email') ?>">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="<?= ValueKeeper::keepVals('email') ?>">
                     <p class='err'> <?= $email_err ?> </p>
                 </div>
                 
@@ -175,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/phone.png" alt="Phone Icon" width="20" height="20"></span>
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="<?= $inp_val->keepVals('phone') ?>">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="<?= ValueKeeper::keepVals('phone') ?>">
                     <p class='err'> <?= $phone_err ?> </p>
                 </div>
 
@@ -183,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <div class="field">
                     <span class="field-icon"><img src="images/contacts/message.png" alt="Message Icon" width="20" height="20"></span>
                     <label for="msg" class="form-label">Message <span class="err">*</span></label>
-                    <textarea class="form-control" id="msg" name="msg" rows="3" placeholder="Your Message"><?= $inp_val->keepVals('msg') ?></textarea>
+                    <textarea class="form-control" id="msg" name="msg" rows="3" placeholder="Your Message"><?= ValueKeeper::keepVals('msg') ?></textarea>
                     <p class='err'> <?= $msg_err ?> </p>
                 </div>
 
