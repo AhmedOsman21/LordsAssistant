@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Email Validation.
     if(empty($_POST['email'])) {
         $email_err = "Email field is required.";
-    } elseif (!$validator->validate($_POST['email'])) {
+    } elseif (!$validator->validate($_POST['email'], "email")) {
         $email_err = "Please, enter a valid email";
     } else {
         $email = $validator->clean_input($_POST['email']);
