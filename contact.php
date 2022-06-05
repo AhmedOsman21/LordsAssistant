@@ -29,47 +29,58 @@ $inp_val = new ValueKeeper();
 // Instantiate object to validate input.
 $validator = new Validator;
 
-
 // Instantiate input variables
 $name = $subject = $email = $phone = $msg = "";
 
 // Instantiate errors variables
 $name_err = $subject_err = $email_err = $phone_err = $msg_err = "";
 
+
 // Determine if request method is post.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $name = $_POST['full_name'];
-    $subject = $_POST['subject'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $msg = $_POST['msg'];
-
-    // User First Name
-    $fname = ucfirst(explode(" ", $name)[0]);
-
-    // Check if empty values.
-    if (empty($name)) {
+    
+    // Name Validation.
+    if (empty($_POST['full_name'])) {
         $name_err = "Name field is required.";
+    } elseif (!$validator->validate($_POST['full_name'], "name")) {
+        $name_err = "Please type a valid name.";
+    } else {
+        $name = $validator->clean_input($_POST['full_name']);
+        // Get User's First Name To Use It In A Confirmation Message.
+        $fname = ucfirst(explode(" ", $name)[0]);
     }
 
-    if (empty($email)) {
+    // Subject Validation.
+    $subject = $validator->clean_input($_POST['subject']);
+
+    // Email Validation.
+    if(empty($_POST['email'])) {
         $email_err = "Email field is required.";
+    } elseif (!$validator->validate($_POST['email'])) {
+        $email_err = "Please, enter a valid email";
+    } else {
+        $email = $validator->clean_input($_POST['email']);
+    }
+    
+    // Phone Number Validation.
+    if (!empty($_POST['phone'])) {
+        if (!$validator->validate($_POST['phone'], "phone")) {
+            $phone_err = "Sorry, invalid phone number.";
+        } else {
+            $phone = $validator->clean_input($_POST['phone']);
+        }
     }
 
-    if (empty($msg)) {
-        $msg_empty = "Please, type your message.";
+    // Message Validation.
+    if(empty($_POST['msg']) || strlen($_POST['msg']) < 30) {
+        $msg_err = "Message should be at least 30 letters.";
+    } else {
+        $msg = $_POST['msg'];
     }
 
-
-
-
-    // Validate Email.
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $invalid_email = "Please, enter a valid email";
-    }
-
-    // If form is valid.
-    if (!empty($name) && !empty($email) && !empty($msg) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    
+    // Form Is Valid.
+    if (!$name_err && !$email_err && !$phone_err && !$msg_err) {
 
 
         // Initialize Object From PhpMailer Library.
@@ -107,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             // Reset Form Fields.
             $_POST['full_name'] = $_POST['phone'] = $_POST['subject'] = $_POST['email'] = $_POST['msg'] = "";
         } catch (Exception $e) {
-            $output = card("Error!", "Sorry", "bg-danger", "text-white", "An error occured while sending your message.");
+            $output = card("Error!", "Sorry, $fname", "bg-danger", "text-white", "An error occured while sending your message.");
             exit();
         }
     }
@@ -131,11 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         <!-- Return Result -->
         <div class="result">
-            <?php
-            if (isset($output)) {
-                echo $output;
-            }
-            ?>
+            <?= isset($output) ? $ouput : NULL?>
         </div>
 
 
@@ -147,47 +154,40 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/user.png" alt="User Icon" width="20" height="20"></span>
                     <label for="full_name" class="form-label">Full Name <span class="err">*</span></label>
-                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Your Name" value="<?php echo $inp_val->keepVals('full_name') ?>">
-                    <?php if (isset($name_err)) : ?>
-                    <?php echo "<p class='err'>* " . $name_err . "</p>";
-                    endif; ?>
+                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Your Name" value="<?= $inp_val->keepVals('full_name') ?>">
+                    <p class='err'> <?= $name_err ?> </p>
                 </div>
-
-
+                
+                
                 <!-- Subject -->
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/subject.png" alt="User Icon" width="20" height="20"></span>
                     <label for="subject" class="form-label">Subject </label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="<?php echo $inp_val->keepVals('subject') ?>">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="<?= $inp_val->keepVals('subject') ?>">
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/mail.png" alt="Email Icon" width="20" height="20"></span>
                     <label for="email" class="form-label">Email <span class="err">*</span></label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="<?php echo $inp_val->keepVals('email') ?>">
-                    <?php if (isset($email_err)) : ?>
-                    <?php echo "<p class='err'>* " . $email_err . "</p>";
-                    elseif (isset($invalid_email)) :
-                        echo  "<p class='err'>* " . $invalid_email . "</p>";
-                    endif; ?>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="<?= $inp_val->keepVals('email') ?>">
+                    <p class='err'> <?= $email_err ?> </p>
                 </div>
-
-
+                
+                
                 <!-- Phone Number -->
                 <div class="col-md-6 field">
                     <span class="field-icon"><img src="images/contacts/phone.png" alt="Phone Icon" width="20" height="20"></span>
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="<?php echo $inp_val->keepVals('phone') ?>">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="<?= $inp_val->keepVals('phone') ?>">
+                    <p class='err'> <?= $phone_err ?> </p>
                 </div>
 
                 <div class="field">
                     <span class="field-icon"><img src="images/contacts/message.png" alt="Message Icon" width="20" height="20"></span>
                     <label for="msg" class="form-label">Message <span class="err">*</span></label>
-                    <textarea class="form-control" id="msg" name="msg" rows="3" placeholder="Your Message"><?php echo $inp_val->keepVals('msg') ?></textarea>
-                    <?php if (isset($msg_empty)) : ?>
-                    <?php echo "<p class='err'>* " . $msg_empty . "</p>";
-                    endif; ?>
+                    <textarea class="form-control" id="msg" name="msg" rows="3" placeholder="Your Message"><?= $inp_val->keepVals('msg') ?></textarea>
+                    <p class='err'> <?= $msg_err ?> </p>
                 </div>
 
 
