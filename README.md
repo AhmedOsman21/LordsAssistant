@@ -16,11 +16,15 @@ The application solving some problems:
 - PHP Mailer Library
 
 ## Installation
-1. Start XAMPP Servers
+1. Download the project
+
+`git clone https://github.com/AhmedOsman21/LordsAssistant.git`
+
+2. Start XAMPP Servers On Windows.
+
+Or Ubuntu by this command:
 
 `sudo /opt/lampp/lampp start`
-
-2. Download & Install [Composer 2.2.7](https://getcomposer.org/download/)
 
 
 ## 🚀 Demo
