@@ -13,7 +13,7 @@ class Validator extends Validation {
      * @param string $value Input data
      * @param string $type="" (optional) Input type i.e name, email, phone
      *
-     * @return bool Whether the cleaned-input value is valid or not
+     * @return bool Whether the input value is valid or not
      */
     public function validate(string $value, string $type = ""): bool {
         $string_pattern = "/^[A-z\s]*$/";
@@ -21,12 +21,7 @@ class Validator extends Validation {
         $result = false;
 
 
-        // Valid general input
-        if ($type === "") {
-            $result = true;
-
-        // Valid Name
-        } elseif (($type === "name") && preg_match($string_pattern, $value)) {
+        if (($type === "name") && preg_match($string_pattern, $value)) {
             $result = true;
 
             // Valid E-mail
