@@ -17,7 +17,17 @@ class Validator extends Validation {
     * @return bool Whether the cleaned-input value is valid or not
     */
     public function validate(string $value, string $type="") : bool {
-
+        
     }
 
+    /**
+    * Clean input data
+    * @param string $input Input data
+    * 
+    * @return string Cleaned and sanitized version of input value.
+    */
+    protected function clean_input($input) {
+        return trim(stripslashes(htmlspecialchars($input)));
+    }
+    
 }
