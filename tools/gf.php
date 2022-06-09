@@ -1,20 +1,13 @@
-<!-- Page Stylesheet -->
-<?php $style = 'forms' ?>
-
-
-<!-- Calculator Logic -->
 <?php
 
-// Check if there are errors
+// Stylesheet Name
+$style = 'forms';
+
+// Check whether occur
 $error_occur = false;
 
-
-
-
-
 // Error Handling
-function err($err_type)
-{
+function err($err_type) {
   global $error_occur;
   global $err_msg;
   $error_occur = true;
@@ -79,8 +72,6 @@ $total_quests = 10;
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
   // Form Variables & Sanitizing Form Inputs
   if (isset($_POST['cur_pts']) && isset($_POST['req_pts']) && isset($_POST['guild_level'])) {
-    // $cur_pts = (int) filter_var($_POST['cur_pts'], FILTER_SANITIZE_NUMBER_INT);
-    // $req_pts = (int) filter_var($_POST['req_pts'], FILTER_SANITIZE_NUMBER_INT);
     $guild_level = $_POST['guild_level'];
     $cur_pts = $_POST['cur_pts'];
     $req_pts = $_POST['req_pts'];
@@ -176,33 +167,23 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 ?>
 
 <?php include "../include/header.php" ?>
 
 <body>
+  <!-- Navbar -->
   <?php include "../include/nav.php" ?>
 
-
-
-
-
-
-
+  <!-- Form Container -->
   <div class="container main-container">
+
+    <!-- Form Heading -->
     <div class="row mt-5 mb-3 heading">
       <h2><span><img src="../images/gf/g-lvl-master.png" alt="Guild Fest icon" class="head-icon"></span> Guild Fest Calculator</h2>
     </div>
+
+    <!-- Calculator Info -->
     <div class="row">
       <div class="description alert alert-success alert-dismissible fade show" role="alert">
         Help you know what tasks you should focus on to get your GF done!
@@ -210,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       </div>
     </div>
 
-    <!-- Return The Result -->
+    <!-- Result -->
     <div class="container result">
       <div class="col-md-6 col-lg-6 col-10 result">
 
@@ -219,7 +200,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         } ?>
       </div>
     </div>
-
 
     <!-- Calculator Form -->
     <div class="row form-container">
@@ -231,7 +211,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
           <input type="text" class="form-control" id="cur-pts" name="cur_pts" placeholder="Your current points">
         </div>
 
-
         <!-- Required Points -->
         <div class="col-md-6">
           <label for="req-pts" class="form-label">Required points</label>
@@ -241,8 +220,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <!-- Guild Level -->
         <div class="col-md-6">
           <div class="gl row">
-
             <div class="form-label">Guild Tier</div>
+
             <!-- Master -->
             <div class="form-check col">
               <input class="form-check-input" type="radio" name="guild_level" id="master" value="master" checked>
@@ -250,6 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <span><img src="../images/gf/g-lvl-master.png" alt="Master Gauntlet" width='15' height='15'></span>
               </label>
             </div>
+
             <!-- Expert -->
             <div class="form-check col">
               <input class="form-check-input" type="radio" name="guild_level" id="expert" value="expert">
@@ -281,10 +261,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 <span><img src="../images/gf/g-lvl-beginner.png" alt="Beginner Gauntlet" width='15' height='15'></span>
               </label>
             </div>
-
           </div>
         </div>
-
 
         <!-- Completed Quests -->
         <div class="col-md-6">
@@ -302,6 +280,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             <option value="10">10</option>
           </select>
         </div>
+
+        <!-- Checkbox -->
         <div class="col-12">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck" name="include_bonus" value="true">
@@ -310,18 +290,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             </label>
           </div>
         </div>
+
+        <!-- Calculate Button -->
         <div class="col-12 submit">
           <button type="submit" class="btn submit-btn btn-success">Calculate</button>
         </div>
       </form>
-
     </div>
-
-
-
-    
   </div>
-  
+
   <?php require "../include/footer.php" ?>
   <script src="../js/gf.js"></script>
 </body>
