@@ -9,55 +9,59 @@ require_once "../autoloader.php";
 require_once "output_card.php";
 
 // Check whether occur
-$error_occur = false;
+// $error_occur = false;
 
-// Error Handling
-function err($err_type) {
-  global $error_occur;
-  global $err_msg;
-  $error_occur = true;
-  $empty_field = "Please, make sure fields are not empty before submitting!";
-  $completed = "Congratulations, You've completed the event";
-  $input_zero = "Points can't be zero or less!";
-  $invalid_input = "Please, type valid numbers in the points field!";
-  $no_quests = "Sorry, you've ran out of quests!";
+// // Error Handling
+// function err($err_type) {
+//   global $error_occur;
+//   global $err_msg;
+//   $error_occur = true;
+//   $empty_field = "Please, make sure fields are not empty before submitting!";
+//   $completed = "Congratulations, You've completed the event";
+//   $input_zero = "Points can't be zero or less!";
+//   $invalid_input = "Please, type valid numbers in the points field!";
+//   $no_quests = "Sorry, you've ran out of quests!";
 
-  // Empty Field
-  if ($err_type === "empty_field") {
-    $err_msg = $empty_field;
-  }
+//   // Empty Field
+//   if ($err_type === "empty_field") {
+//     $err_msg = $empty_field;
+//   }
 
-  // When required points are less than current points.
-  if ($err_type === "completed") {
-    $err_msg = $completed;
-  }
+//   // When required points are less than current points.
+//   if ($err_type === "completed") {
+//     $err_msg = $completed;
+//   }
 
-  // When zero or less is typed in the points field.
-  if ($err_type === "input_zero") {
-    $err_msg = $input_zero;
-  }
+//   // When zero or less is typed in the points field.
+//   if ($err_type === "input_zero") {
+//     $err_msg = $input_zero;
+//   }
 
-  // Wrong datatype inside points fields.
-  if ($err_type === "invalid_input") {
-    $err_msg = $invalid_input;
-  }
-
-
-  // When user run out of tasks
-  if ($err_type == "zero_division") {
-    $err_msg = "$no_quests";
-  }
-
-  // No quests left.
-  if ($err_type == "no_quests") {
-    $err_msg = $no_quests;
-  }
-
-  return $err_msg;
-}
+//   // Wrong datatype inside points fields.
+//   if ($err_type === "invalid_input") {
+//     $err_msg = $invalid_input;
+//   }
 
 
+//   // When user run out of tasks
+//   if ($err_type == "zero_division") {
+//     $err_msg = "$no_quests";
+//   }
 
+//   // No quests left.
+//   if ($err_type == "no_quests") {
+//     $err_msg = $no_quests;
+//   }
+
+//   return $err_msg;
+// }
+
+
+// Calculator Variables
+$guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
+
+// Error Variables
+$logic_err = $g_lvl_err = $cur_pts_err = $req_pts_err = $comp_quests_err = "";
 
 // Card Variables.
 $head = $subhead = $card_color = $text_color = "";
