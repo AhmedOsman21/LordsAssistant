@@ -79,6 +79,25 @@ $total_quests = 10;
 
 // Check Request Method
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+  // Current Points Validation.
+  if (empty($_POST['cur_pts'])) {
+    $cur_pts_err = "Current points' field is required!";
+  } elseif (!$validator->validate($_POST['cur_pts'], "number")) {
+    $cur_pts_err = "Please, type a valid number!";
+  } else {
+    $cur_pts = $_POST['cur_pts'];
+  }
+
+  // Required Points Validation.
+  if (empty($_POST['req_pts'])) {
+    $req_pts_err = "Required points cannot be empty!";
+  } elseif (!$validator->validate($_POST['req_pts'])) {
+    $req_pts_err = "Please, enter a valid number!";
+  } else {
+    $req_pts = $_POST['req_pts'];
+  }
+
   // Form Variables & Sanitizing Form Inputs
   if (isset($_POST['cur_pts']) && isset($_POST['req_pts']) && isset($_POST['guild_level'])) {
     $guild_level = $_POST['guild_level'];
