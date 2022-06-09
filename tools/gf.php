@@ -56,6 +56,8 @@ require_once "output_card.php";
 //   return $err_msg;
 // }
 
+// Instanciate validator object
+$validator = new Validator;
 
 // Calculator Variables
 $guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
