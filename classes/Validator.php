@@ -30,6 +30,10 @@ class Validator extends Validation {
             // Valid Phone Number
         } elseif ($type === "phone" && preg_match(static::$phone_pattern, $value)) {
             $result = true;
+
+            // Valid Integer
+        } elseif ($type === "number" && filter_var($value, FILTER_VALIDATE_INT)) {
+            $result = true;
         }
 
         return $result;
