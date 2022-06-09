@@ -1,7 +1,12 @@
 <?php
-
 // Stylesheet Name
 $style = 'forms';
+
+// Import Autoloader
+require_once "../autoloader.php";
+
+// Import Output Card Creator.
+require_once "output_card.php";
 
 // Check whether occur
 $error_occur = false;
@@ -52,8 +57,6 @@ function err($err_type) {
 }
 
 
-// Include output card file to import Card Function.
-require_once "output_card.php";
 
 
 // Card Variables.
