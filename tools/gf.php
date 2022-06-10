@@ -63,7 +63,7 @@ $validator = new Validator;
 $guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
 
 // Error Variables
-$logic_err = $g_lvl_err = $cur_pts_err = $req_pts_err = $comp_quests_err = "";
+$logic_err = $cur_pts_err = $req_pts_err = "";
 
 // Card Variables.
 $head = $subhead = $card_color = $text_color = "";
