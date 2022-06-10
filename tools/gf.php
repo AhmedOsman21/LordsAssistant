@@ -120,60 +120,51 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   // }
 
 
-  // Validate Inputs
-  if (!empty($cur_pts) && !empty($req_pts)) {
-    // $err = card("Error!", "Invalid input", "bg-danger", "text-white", err('input_zero'));
 
 
+  // Check Guild Level & Set total tasks according to it.
+  switch ($guild_level):
+    case "master":
+      $total_quests = 10;
+      break;
+    case "expert":
+      $total_quests = 9;
+      break;
+    case "advanced":
+      $total_quests = 8;
+      break;
+    case "intermediate":
+      $total_quests = 7;
+      break;
+    case "beginner":
+      $total_quests = 6;
+      break;
+  endswitch;
 
-    // Check Guild Level & Set total tasks according to it.
-    switch ($guild_level):
-      case "master":
-        $total_quests = 10;
-        break;
-      case "expert":
-        $total_quests = 9;
-        break;
-      case "advanced":
-        $total_quests = 8;
-        break;
-      case "intermediate":
-        $total_quests = 7;
-        break;
-      case "beginner":
-        $total_quests = 6;
-        break;
-    endswitch;
 
+  // Check if bonus quest is included.
+  if ($include_bonus) {
+    $total_quests++;
+  }
 
-    // Check if bonus quest is included.
-    if ($include_bonus) {
-      $total_quests++;
-    }
+  // Calculation
+  $pts_left = $req_pts - $cur_pts;
+  $quests_left = $total_quests - $complete_quests;
 
-    // Calculation
-    $pts_left = $req_pts - $cur_pts;
-    $quests_left = $total_quests - $complete_quests;
+  // Make sure division is not by zero
+  if ($pts_left !== 0 && $quests_left != 0) {
+    $result = $pts_left / $quests_left;
+    // Output
+    $res_msg = "Quests above <strong style='color: var(--bs-success);'>" . ceil($result) . "</strong> points, to achieve the required points";
+    $result = card("Result", "You should focus on", "bg-dark", "text-white", $res_msg);
 
-    // Make sure division is not by zero
-    if ($pts_left !== 0 && $quests_left != 0) {
-      $result = $pts_left / $quests_left;
-      // Output
-      $res_msg = "Quests above <strong style='color: var(--bs-success);'>" . ceil($result) . "</strong> points, to achieve the required points";
-      $result = card("Result", "You should focus on", "bg-dark", "text-white", $res_msg);
+    // No Points Left = Completed.
+  } else if ($pts_left <= 0) {
+    $err = card("Congratulations!", "Nothing to worry about", "bg-success", "text-white", err('completed'));
 
-      // No Points Left = Completed.
-    } else if ($pts_left <= 0) {
-      $err = card("Congratulations!", "Nothing to worry about", "bg-success", "text-white", err('completed'));
-
-      // No tasks left BUT there are points left.
-    } else if ($quests_left === 0 && $pts_left > 0) {
-      $err = card("Oops!", "Bad news.", "bg-dark", "text-white", err('no_quests'));
-    }
-
-    // Empty Inputs
-  } else {
-    $err = card("Error!", "Fields are empty.", "bg-danger", "text-white", err('empty_field'));
+    // No tasks left BUT there are points left.
+  } else if ($quests_left === 0 && $pts_left > 0) {
+    $err = card("Oops!", "Bad news.", "bg-dark", "text-white", err('no_quests'));
   }
 
   // Output
