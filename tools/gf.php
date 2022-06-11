@@ -236,14 +236,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <!-- Current Points -->
         <div class="col-md-6">
           <label for="cur-pts" class="form-label">Current points</label>
-          <input type="text" class="form-control" id="cur-pts" name="cur_pts" placeholder="Your current points">
+          <input type="text" class="form-control" id="cur-pts" name="cur_pts" placeholder="Your current points" value="<?= ValueKeeper::keepVals("cur_pts") ?>">
           <span class="err"><?= $cur_pts_err ?></span>
         </div>
 
         <!-- Required Points -->
         <div class="col-md-6">
           <label for="req-pts" class="form-label">Required points</label>
-          <input type="text" class="form-control" id="req-pts" name="req_pts" placeholder="Points to be achieved">
+          <input type="text" class="form-control" id="req-pts" name="req_pts" placeholder="Points to be achieved" value="<?= ValueKeeper::keepVals("req_pts") ?>">
           <span class="err"><?= $req_pts_err ?></span>
         </div>
 
