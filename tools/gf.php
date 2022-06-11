@@ -159,8 +159,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     // No tasks left BUT there are points left.
   } elseif ($quests_left === 0 && $pts_left > 0) {
-    $logic_err = "Sorry, you've ran out of quests, and still didn't achieve the required points";
-    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $logic_err);
+    ob_start();?>
+    Sorry, you've ran out of quests. 
+    <br>
+    <br> 
+    <strong>Note: </strong>
+    <br>
+    If you didn't check the 
+    <br>
+    <span style="color: var(--bs-success)"><em> I'll make the bonus quest</em></span>
+    <br> 
+    checkbox, please do it, and try again.
+    <?php
+    $logic_err = ob_get_clean();
+    $output_card = card("Oops!", "Bad News!", "bg-dark", "text-white", $logic_err);
     // No Errors
   }elseif ($pts_left !== 0) {
     $result = ceil($pts_left / $quests_left);
