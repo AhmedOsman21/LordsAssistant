@@ -28,7 +28,7 @@ class ValueKeeper {
      * @return string 
     */
     public static function keepSelection($selection, $option_value) {
-        if ($selection == $option_value) {
+        if ($_POST[$selection] == $option_value) {
             return "selected";
         }
     }
