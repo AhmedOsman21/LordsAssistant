@@ -152,31 +152,23 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   $quests_left = $total_quests - $complete_quests;
 
   // Make sure division is not by zero
-  if ($pts_left !== 0 && $quests_left != 0) {
-    $result = $pts_left / $quests_left;
-    // Output
-    $res_msg = "Quests above <strong style='color: var(--bs-success);'>" . ceil($result) . "</strong> points, to achieve the required points";
-    $result = card("Result", "You should focus on", "bg-dark", "text-white", $res_msg);
+  if ($pts_left !== 0) {
+    $result = ceil($pts_left / $quests_left);
+    $output = "You should focus on quests that are above <strong style='color: var(--bs-success);'> $result </strong> points, to achieve the required points";
+    $output_card = card("Result", "You have $quests_left quests remain.", "bg-dark", "text-white", $ouput);
 
-    // No Points Left = Completed.
+    // Required points achieved or less than the current points.
   } else if ($pts_left <= 0) {
-    $err = card("Congratulations!", "Nothing to worry about", "bg-success", "text-white", err('completed'));
+    $output = "Current points should be less than required points";
+    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $output);
 
     // No tasks left BUT there are points left.
   } else if ($quests_left === 0 && $pts_left > 0) {
-    $err = card("Oops!", "Bad news.", "bg-dark", "text-white", err('no_quests'));
-  }
-
-  // Output
-  $ouput = "";
-  if ($error_occur) {
-    $output = $err;
-  } else {
-    if (isset($result)) {
-      $output = $result;
-    }
+    $output = "Sorry, you've ran out of quests, and still didn't achieve the required points";
+    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $output);
   }
 }
+
 
 ?>
 
@@ -206,10 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Result -->
     <div class="container result">
       <div class="col-md-6 col-lg-6 col-10 result">
-
-        <?php if (isset($output)) {
-          echo $output;
-        } ?>
+        <?= $output ?>
       </div>
     </div>
 
