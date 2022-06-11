@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   if ($pts_left !== 0) {
     $result = ceil($pts_left / $quests_left);
     $output = "You should focus on quests that are above <strong style='color: var(--bs-success);'> $result </strong> points, to achieve the required points";
-    $output_card = card("Result", "You have $quests_left quests remain.", "bg-dark", "text-white", $ouput);
+    $output_card = card("Result", "You have $quests_left quests remain.", "bg-dark", "text-white", $output);
 
     // Required points achieved or less than the current points.
   } else if ($pts_left <= 0) {
@@ -198,7 +198,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Result -->
     <div class="container result">
       <div class="col-md-6 col-lg-6 col-10 result">
-        <?= $output ?>
+        <?php 
+        if (isset($output) && isset($output_card)) {
+          echo $output_card;
+        }
+         ?>
       </div>
     </div>
 
