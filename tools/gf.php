@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <div class="container result">
       <div class="col-md-6 col-lg-6 col-10 result">
         <?php
-        if (isset($output) && isset($output_card)) {
+        if (isset($output_card)) {
           echo $output_card;
         }
         ?>
