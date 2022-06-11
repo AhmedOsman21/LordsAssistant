@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
   // Current Points Validation.
   if (empty($_POST['cur_pts'])) {
-    $cur_pts_err = "Current points' field is required!";
+    $cur_pts_err = "Current points are required!";
   } elseif (!$validator->validate($_POST['cur_pts'], "number")) {
     $cur_pts_err = "Please, type a valid number!";
   } else {
@@ -79,9 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
   // Required Points Validation.
   if (empty($_POST['req_pts'])) {
-    $req_pts_err = "Required points cannot be empty!";
+    $req_pts_err = "This field cannot be empty!";
   } elseif (!$validator->validate($_POST['req_pts'], "number")) {
-    $req_pts_err = "Please, enter a valid number!";
+    $req_pts_err = "Please, type a valid number!";
   } else {
     $req_pts = +$validator->clean_input($_POST['req_pts']);
   }
@@ -237,12 +237,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <div class="col-md-6">
           <label for="cur-pts" class="form-label">Current points</label>
           <input type="text" class="form-control" id="cur-pts" name="cur_pts" placeholder="Your current points">
+          <span class="err"><?= $cur_pts_err ?></span>
         </div>
 
         <!-- Required Points -->
         <div class="col-md-6">
           <label for="req-pts" class="form-label">Required points</label>
           <input type="text" class="form-control" id="req-pts" name="req_pts" placeholder="Points to be achieved">
+          <span class="err"><?= $req_pts_err ?></span>
         </div>
 
         <!-- Guild Level -->

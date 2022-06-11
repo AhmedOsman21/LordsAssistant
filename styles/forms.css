@@ -66,3 +66,8 @@ body {
     display: flex;
     justify-content: center
 }
+
+span.err {
+    color: red;
+    font-size:small;
+}
