@@ -188,6 +188,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
       $output = ob_get_clean();
       $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
+
+      // Reset form data
+      $guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
     }
   }
 }
