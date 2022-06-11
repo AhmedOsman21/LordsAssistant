@@ -18,4 +18,18 @@ class ValueKeeper {
         }
         return static::$value;
     }
+
+    /**
+     * Keep The Selected Option Set When An Error Occur.
+     * @param string Name of select element.
+     * 
+     * @param string Value of the option element
+     * 
+     * @return string 
+    */
+    public static function keepSelection($selection, $option_value) {
+        if ($selection == $option_value) {
+            return $option_value;
+        }
+    }
 }
