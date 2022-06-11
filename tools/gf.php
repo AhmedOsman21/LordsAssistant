@@ -154,8 +154,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   // Make sure division is not by zero
   if ($pts_left !== 0) {
     $result = ceil($pts_left / $quests_left);
-    $output = "You should focus on quests that are above <strong style='color: var(--bs-success);'> $result </strong> points, to achieve the required points";
-    $output_card = card("Result", "You have $quests_left quests remain.", "bg-dark", "text-white", $output);
+    $output = <<<EOD
+    Quests that are above <strong style='color: var(--bs-success);'> $result </strong> points.
+    <br>
+    <br>
+    <strong> You have: </strong>
+    <br>
+    ➜ $pts_left points left.
+    <br>
+    ➜ $quests_left quest left.
+    <br> 
+    
+    EOD;
+    $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
     // Required points achieved or less than the current points.
   } else if ($pts_left <= 0) {
