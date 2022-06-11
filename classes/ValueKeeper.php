@@ -29,7 +29,7 @@ class ValueKeeper {
     */
     public static function keepSelection($selection, $option_value) {
         if ($selection == $option_value) {
-            return $option_value;
+            return "selected";
         }
     }
 }
