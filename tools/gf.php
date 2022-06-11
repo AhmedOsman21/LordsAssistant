@@ -151,10 +151,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   $pts_left = $req_pts - $cur_pts;
   $quests_left = $total_quests - $complete_quests;
 
-  // Make sure division is not by zero
-  if ($pts_left !== 0) {
-    $result = ceil($pts_left / $quests_left);
+  
+  // Required points achieved or less than the current points.
+  if ($pts_left <= 0) {
+    $logic_err = "Current points should be less than required points";
+    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $logic_err);
 
+    // No tasks left BUT there are points left.
+  } elseif ($quests_left === 0 && $pts_left > 0) {
+    $logic_err = "Sorry, you've ran out of quests, and still didn't achieve the required points";
+    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $logic_err);
+    // No Errors
+  }elseif ($pts_left !== 0) {
+    $result = ceil($pts_left / $quests_left);
     // Output Code
     ob_start();
 ?>
@@ -181,16 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $output = ob_get_clean();
     $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
-    // Required points achieved or less than the current points.
-  } else if ($pts_left <= 0) {
-    $logic_err = "Current points should be less than required points";
-    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $logic_err);
-
-    // No tasks left BUT there are points left.
-  } else if ($quests_left === 0 && $pts_left > 0) {
-    $logic_err = "Sorry, you've ran out of quests, and still didn't achieve the required points";
-    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $logic_err);
-  }
+  } 
 }
 
 
