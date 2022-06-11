@@ -299,15 +299,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
           <label for="comp-q" class="form-label">Completed Quests</label>
           <select id="comp-q" class="form-select" name="complete_quests">
             <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            <option value="2" <?= ValueKeeper::keepSelection("complete_quests", 2) ?> > 2 </option>
+            <option value="3" <?= ValueKeeper::keepSelection("complete_quests", 3) ?> > 3 </option>
+            <option value="4" <?= ValueKeeper::keepSelection("complete_quests", 4) ?> > 4 </option>
+            <option value="5" <?= ValueKeeper::keepSelection("complete_quests", 5) ?> > 5 </option>
+            <option value="6" <?= ValueKeeper::keepSelection("complete_quests", 6) ?> > 6 </option>
+            <option value="7" <?= ValueKeeper::keepSelection("complete_quests", 7) ?> > 7 </option>
+            <option value="8" <?= ValueKeeper::keepSelection("complete_quests", 8) ?> > 8 </option>
+            <option value="9" <?= ValueKeeper::keepSelection("complete_quests", 9) ?> > 9 </option>
+            <option value="10"<?= ValueKeeper::keepSelection("complete_quests", 10) ?> > 10 </option>
           </select>
         </div>
 
