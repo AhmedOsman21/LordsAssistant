@@ -170,13 +170,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     // Required points achieved or less than the current points.
   } else if ($pts_left <= 0) {
-    $output = "Current points should be less than required points";
-    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $output);
+    $logic_err = "Current points should be less than required points";
+    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $logic_err);
 
     // No tasks left BUT there are points left.
   } else if ($quests_left === 0 && $pts_left > 0) {
-    $output = "Sorry, you've ran out of quests, and still didn't achieve the required points";
-    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $output);
+    $logic_err = "Sorry, you've ran out of quests, and still didn't achieve the required points";
+    $output_card = card("Oops!", "Bad news.", "bg-dark", "text-white", $logic_err);
   }
 }
 
