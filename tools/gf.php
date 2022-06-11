@@ -154,21 +154,30 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   // Make sure division is not by zero
   if ($pts_left !== 0) {
     $result = ceil($pts_left / $quests_left);
+
+    // Output Code
     ob_start();
-    ?>
+?>
     Quests that are above <strong style='color: var(--bs-success);'> <?= $result ?> </strong> points.
     <br>
     <br>
-    <div id="more-info">
-      <strong> You have: </strong>
 
+    <!-- Button trigger modal -->
+    <button id="expand-output-details" class="btn btn-outline-success btn-sm">
+      Details
+    </button>
+
+
+    <div id="output-details" style="display: none;">
+      <strong>You have: </strong>
       <br>
-      ➜ <?= $pts_left ?> points left.
+      ➜ <span style='color: var(--bs-success);'> <?= $pts_left ?> </span> points left. 
       <br>
-      ➜ <?= $quests_left ?> quest left.
-      <br>
+      ➜ <span style='color: var(--bs-success);'> <?= $quests_left ?> </span> quest left. </span>
     </div>
-    <?php
+
+
+<?php
     $output = ob_get_clean();
     $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
@@ -213,11 +222,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Result -->
     <div class="container result">
       <div class="col-md-6 col-lg-6 col-10 result">
-        <?php 
+        <?php
         if (isset($output) && isset($output_card)) {
           echo $output_card;
         }
-         ?>
+        ?>
       </div>
     </div>
 
