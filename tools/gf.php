@@ -8,54 +8,6 @@ require_once "../autoloader.php";
 // Import Output Card Creator.
 require_once "output_card.php";
 
-// Check whether occur
-// $error_occur = false;
-
-// // Error Handling
-// function err($err_type) {
-//   global $error_occur;
-//   global $err_msg;
-//   $error_occur = true;
-//   $empty_field = "Please, make sure fields are not empty before submitting!";
-//   $completed = "Congratulations, You've completed the event";
-//   $input_zero = "Points can't be zero or less!";
-//   $invalid_input = "Please, type valid numbers in the points field!";
-//   $no_quests = "Sorry, you've ran out of quests!";
-
-//   // Empty Field
-//   if ($err_type === "empty_field") {
-//     $err_msg = $empty_field;
-//   }
-
-//   // When required points are less than current points.
-//   if ($err_type === "completed") {
-//     $err_msg = $completed;
-//   }
-
-//   // When zero or less is typed in the points field.
-//   if ($err_type === "input_zero") {
-//     $err_msg = $input_zero;
-//   }
-
-//   // Wrong datatype inside points fields.
-//   if ($err_type === "invalid_input") {
-//     $err_msg = $invalid_input;
-//   }
-
-
-//   // When user run out of tasks
-//   if ($err_type == "zero_division") {
-//     $err_msg = "$no_quests";
-//   }
-
-//   // No quests left.
-//   if ($err_type == "no_quests") {
-//     $err_msg = $no_quests;
-//   }
-
-//   return $err_msg;
-// }
-
 // Instanciate validator object
 $validator = new Validator;
 
@@ -97,17 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $include_bonus = true;
   }
 
-  // // Form Variables & Sanitizing Form Inputs
-  // if (isset($_POST['cur_pts']) && isset($_POST['req_pts']) && isset($_POST['guild_level'])) {
-  //   $guild_level = $_POST['guild_level'];
-  //   $cur_pts = $_POST['cur_pts'];
-  //   $req_pts = $_POST['req_pts'];
-  //   $complete_quests = (int) $_POST['complete_quests'];
-  //   if (isset($_POST['include_bonus'])) {
-  //     $include_bonus = (bool) $_POST['include_bonus'];
-  //   }
-  // }
-
   // Set the quests count for every guild-level.
   switch ($guild_level):
     case "master":
@@ -133,11 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   }
 
   if (!$req_pts_err && !$cur_pts_err) {
-
     // Calculation
     $pts_left = $req_pts - $cur_pts;
     $quests_left = $total_quests - $complete_quests;
-
 
     // Required points achieved or less than the current points.
     if ($pts_left <= 0) {
@@ -146,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
       // No tasks left BUT there are points left.
     } elseif ($quests_left === 0 && $pts_left > 0) {
+      // Error Template
       ob_start(); ?>
       Sorry, you've ran out of quests.
       <br>
@@ -164,19 +104,16 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       // No Errors
     } elseif ($pts_left !== 0) {
       $result = ceil($pts_left / $quests_left);
-      // Output Code
+      // Output Template
       ob_start();
     ?>
       Quests that are above <strong style='color: var(--bs-success);'> <?= $result ?> </strong> points.
       <br>
       <br>
-
       <!-- Button trigger modal -->
       <button id="expand-output-details" class="btn btn-outline-success btn-sm">
         Details
       </button>
-
-
       <div id="output-details" style="display: none;">
         <strong>You have: </strong>
         <br>
@@ -185,7 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         ➜ <span style='color: var(--bs-success);'> <?= $quests_left ?> </span> quest left. </span>
       </div>
 <?php
-
       $output = ob_get_clean();
       $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
@@ -199,7 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
   }
 }
-
 
 ?>
 
@@ -237,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       </div>
     </div>
 
-    <!-- Calculator Form -->
+    <!-- Calculator Inputs -->
     <div class="row form-container">
       <form class="row g-3 mb-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
@@ -340,5 +275,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   <?php require "../include/footer.php" ?>
   <script src="../js/gf.js"></script>
 </body>
-
 </html>
