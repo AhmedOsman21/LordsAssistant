@@ -119,10 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   //   }
   // }
 
-
-
-
-  // Check Guild Level & Set total tasks according to it.
+  // Set the quests count for every guild-level.
   switch ($guild_level):
     case "master":
       $total_quests = 10;
@@ -141,68 +138,69 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       break;
   endswitch;
 
-
   // Check if bonus quest is included.
   if ($include_bonus) {
     $total_quests++;
   }
 
-  // Calculation
-  $pts_left = $req_pts - $cur_pts;
-  $quests_left = $total_quests - $complete_quests;
+  if (!$req_pts_err && !$cur_pts_err) {
 
-  
-  // Required points achieved or less than the current points.
-  if ($pts_left <= 0) {
-    $logic_err = "Current points should be less than required points";
-    $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $logic_err);
+    // Calculation
+    $pts_left = $req_pts - $cur_pts;
+    $quests_left = $total_quests - $complete_quests;
 
-    // No tasks left BUT there are points left.
-  } elseif ($quests_left === 0 && $pts_left > 0) {
-    ob_start();?>
-    Sorry, you've ran out of quests. 
-    <br>
-    <br> 
-    <strong>Note: </strong>
-    <br>
-    If you didn't check the 
-    <br>
-    <span style="color: var(--bs-success)"><em> I'll make the bonus quest</em></span>
-    <br> 
-    checkbox, please do it, and try again.
+
+    // Required points achieved or less than the current points.
+    if ($pts_left <= 0) {
+      $logic_err = "Current points should be less than required points";
+      $output_card = card("Oops!", "Error Occured", "bg-success", "text-white", $logic_err);
+
+      // No tasks left BUT there are points left.
+    } elseif ($quests_left === 0 && $pts_left > 0) {
+      ob_start(); ?>
+      Sorry, you've ran out of quests.
+      <br>
+      <br>
+      <strong>Note: </strong>
+      <br>
+      If you didn't check the
+      <br>
+      <span style="color: var(--bs-success)"><em> I'll make the bonus quest</em></span>
+      <br>
+      checkbox, please do it, and try again.
     <?php
-    $logic_err = ob_get_clean();
-    $output_card = card("Oops!", "Bad News!", "bg-dark", "text-white", $logic_err);
-    // No Errors
-  }elseif ($pts_left !== 0) {
-    $result = ceil($pts_left / $quests_left);
-    // Output Code
-    ob_start();
-?>
-    Quests that are above <strong style='color: var(--bs-success);'> <?= $result ?> </strong> points.
-    <br>
-    <br>
+      $logic_err = ob_get_clean();
+      $output_card = card("Oops!", "Bad News!", "bg-dark", "text-white", $logic_err);
 
-    <!-- Button trigger modal -->
-    <button id="expand-output-details" class="btn btn-outline-success btn-sm">
-      Details
-    </button>
-
-
-    <div id="output-details" style="display: none;">
-      <strong>You have: </strong>
+      // No Errors
+    } elseif ($pts_left !== 0) {
+      $result = ceil($pts_left / $quests_left);
+      // Output Code
+      ob_start();
+    ?>
+      Quests that are above <strong style='color: var(--bs-success);'> <?= $result ?> </strong> points.
       <br>
-      ➜ <span style='color: var(--bs-success);'> <?= $pts_left ?> </span> points left. 
       <br>
-      ➜ <span style='color: var(--bs-success);'> <?= $quests_left ?> </span> quest left. </span>
-    </div>
+
+      <!-- Button trigger modal -->
+      <button id="expand-output-details" class="btn btn-outline-success btn-sm">
+        Details
+      </button>
 
 
+      <div id="output-details" style="display: none;">
+        <strong>You have: </strong>
+        <br>
+        ➜ <span style='color: var(--bs-success);'> <?= $pts_left ?> </span> points left.
+        <br>
+        ➜ <span style='color: var(--bs-success);'> <?= $quests_left ?> </span> quest left. </span>
+      </div>
 <?php
-    $output = ob_get_clean();
-    $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
-  } 
+      $output = ob_get_clean();
+      $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
+    }
+  }
 }
 
 
