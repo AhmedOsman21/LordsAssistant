@@ -65,17 +65,6 @@ $guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
 // Error Variables
 $logic_err = $cur_pts_err = $req_pts_err = "";
 
-// Card Variables.
-$head = $subhead = $card_color = $text_color = "";
-
-
-// Intiallize Form Variables
-$cur_pts = "";
-$req_pts = "";
-$complete_quests = 0;
-$include_bonus = false;
-$total_quests = 10;
-
 // Check Request Method
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
