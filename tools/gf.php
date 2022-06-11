@@ -190,7 +190,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       $output_card = card("Result", "Focus on:", "bg-dark", "text-white", $output);
 
       // Reset form data
-      $guild_level = $cur_pts = $req_pts = $complete_quests = $include_bonus = "";
+      $_POST['guild_level'] 
+      = $_POST['cur_pts'] 
+      = $_POST['req_pts'] 
+      = $_POST['complete_quests'] 
+      = $_POST['include_bonus'] 
+      = "";
     }
   }
 }
