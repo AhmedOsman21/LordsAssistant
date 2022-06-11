@@ -59,3 +59,7 @@ for (const radio of radioElems) {
     });
 }
 
+// Show more information on output card once details button is clicked.
+$("#expand-output-details").click(function () {
+    $("#output-details").toggle();
+});
