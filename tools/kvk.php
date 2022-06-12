@@ -1,16 +1,21 @@
-<!-- Calculator Logic -->
 <?php
-// Application Variables
+// Stylesheet Name
+$style = 'forms';
 
 // Resources types & Points per 1000 rss gathering.
-$rss_types = array("food" => 120, "stone" => 180, "timber" => 180, "ore" => 240, "gold" => 330);
+$rss_types = array(
+    "food" => 120, 
+    "stone" => 180, 
+    "timber" => 180, 
+    "ore" => 240, 
+    "gold" => 330
+);
 
 // Resourse amount you should gather.
 $rss_amount = 0;
 
 // Calculation Function 
-function calc($rss_types, $rss_type, $pts)
-{
+function calc($rss_types, $rss_type, $pts) {
     global $rss_amount;
     $rss_pts = $rss_types[$rss_type];
     for ($i = 0; $i < $pts; $i += $rss_pts) {
@@ -18,8 +23,6 @@ function calc($rss_types, $rss_type, $pts)
     }
     return $rss_amount;
 }
-
-
 
 // Include output card file to import Card Function.
 require_once "output_card.php";
@@ -47,36 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 }
 
-
-
-
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-<!-- Stylesheet -->
-<?php $style = 'forms' ?>
 
 <!-- Header -->
 <?php include "../include/header.php" ?>
 
-<!-- Navbar -->
 
 <body>
+    <!-- Navbar -->
     <?php include "../include/nav.php" ?>
 
-
-
-    <!-- Page Content -->
+    <!-- Main Container -->
     <div class="container main-container">
         <div class="row mt-5 mb-3 heading">
             <h2><span><img src="<?php echo urlCheck("images/kvk/kvk.png");?>" alt="kingdom clash icon"></span> Kingdom Clash Calculator</h2>
@@ -90,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             </div>
         </div>
 
-        <!-- Return Result -->
+        <!-- Result Card -->
         <div class="result">
             <?php
             if (isset($output)) {
@@ -174,6 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     </div>
 
+    <!-- Footer -->
     <?php require "../include/footer.php" ?>
 </body>
 
