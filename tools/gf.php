@@ -257,7 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <!-- Checkbox -->
         <div class="col-12">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" name="include_bonus" value="true" <?php if (isset($_POST["include_bonus"])) { echo "checked"; } ?> >
+            <input class="form-check-input" type="checkbox" id="gridCheck" name="include_bonus" value="true" >
             <label class="form-check-label" for="gridCheck" id="include_bonus">
               I'll make the bonus quest.
             </label>
@@ -271,7 +271,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       </form>
     </div>
   </div>
-
+  
+  <!-- Footer -->
   <?php require "../include/footer.php" ?>
   <script src="../js/gf.js"></script>
 </body>
