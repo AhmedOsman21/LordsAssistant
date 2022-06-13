@@ -2,6 +2,12 @@
 // Stylesheet Name
 $style = 'forms';
 
+// Import Autoloader
+require_once "../autoloader.php";
+
+// Include output card file to import Card Function.
+require_once "output_card.php";
+
 // Resources types & Points per 1000 rss gathering.
 $rss_types = array(
     "food" => 120, 
@@ -24,8 +30,6 @@ function calc($rss_types, $rss_type, $pts) {
     return $rss_amount;
 }
 
-// Include output card file to import Card Function.
-require_once "output_card.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Check form inputs & Sanitize it.
