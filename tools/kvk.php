@@ -105,17 +105,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     <span class="pts-icon"><img src="<?php echo urlCheck("images/kvk/points.webp"); ?>" alt="points icon" width="20" height="20"></span>
                     <label for="remain-points" class="form-label">Points Remain</label>
                     <input type="text" class="form-control" id="remain-points" name="remain_pts" placeholder="Required points">
+                    <span class="err"><?= $points_err ?></span>
                 </div>
 
                 <!-- Resources Type -->
                 <div>
                     <div class="gl row">
                         <div class="form-label">Resources Type</div>
-
-
                         <!-- Options -->
                         <div class="options row">
-
                             <!-- Food -->
                             <div class="form-check col-md-4 col-sm-12">
                                 <input class="form-check-input" type="radio" name="rss_type" id="food" value="food">
@@ -160,9 +158,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                                 </label>
                             </div>
                         </div>
-
+                        <span class="err"><?= $rss_type_err ?></span>
                     </div>
                 </div>
+
+                <!-- Calculate Button -->
                 <div class="col col-sm-12-12 submit">
                     <button type="submit" class="btn submit-btn btn-success">Calculate</button>
                 </div>
