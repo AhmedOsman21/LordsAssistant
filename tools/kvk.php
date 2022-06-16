@@ -30,6 +30,7 @@ function calc($rss_types, $rss_type, $pts) {
     return $rss_amount;
 }
 
+$validator = new Validator;
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Check form inputs & Sanitize it.
