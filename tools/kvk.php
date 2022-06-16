@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (empty($_POST['remain_pts'])) {
         $points_err = 'Please, enter your remain points to calculate.';
         // Invalid number.
-    } elseif ($validator($_POST['remain_pts'], 'number')) {
+    } elseif (!$validator->validate($_POST['remain_pts'], 'number')) {
         $points_err = 'You should type a valid number.';
         // Valid points.
     } else {
@@ -48,20 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     // Validate RSS Type
-    if (empty($_POST['rss_type'])) {
+    if (!isset($_POST['rss_type'])) {
         $rss_type_err = 'Cannot proceed without choosing a resource type.';
     } else {
         $rss_type = $_POST['rss_type'];
     }
+
+    // No Errors
+    if (!$points_err && !$rss_type_err) {
+        $result = number_format(calc($rss_types, $rss_type, $points), 0, '', ',');
+        $res_txt = "<strong style='color: var(--bs-success)'>" . $result . "</strong>";
+        $output = card("Result", "You have to gather", "bg-dark", "text-white", "$res_txt $rss_type to finish the given points.");
+    }
 }
 
-// No Errors
-if (!$points_err && !$rss_type_err) {
-    $points = (int) filter_var($points, FILTER_SANITIZE_NUMBER_INT);
-    $result = number_format(calc($rss_types, $rss_type, $points), 0, '', ',');
-    $res_txt = "<strong style='color: var(--bs-success)'>" . $result . "</strong>";
-    $output = card("Result", "You have to gather", "bg-dark", "text-white", "$res_txt $rss_type to finish the given points.");
-}
 
 ?>
 
