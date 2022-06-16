@@ -20,6 +20,7 @@ class Validator extends Validation {
     public function validate(string $value, string $type = ""): bool {
         $result = false;
 
+        // Valid Names
         if (($type === "name") && preg_match(static::$string_pattern, $value)) {
             $result = true;
 
@@ -31,8 +32,8 @@ class Validator extends Validation {
         } elseif ($type === "phone" && preg_match(static::$phone_pattern, $value)) {
             $result = true;
 
-            // Valid Integer
-        } elseif ($type === "number" && filter_var($value, FILTER_VALIDATE_INT)) {
+            // Valid Positive Integer
+        } elseif ($type === "number" && filter_var($value, FILTER_VALIDATE_INT) && $value > 0) {
             $result = true;
         }
 
