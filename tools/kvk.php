@@ -32,11 +32,16 @@ function calc($rss_types, $rss_type, $pts) {
 
 $validator = new Validator;
 
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    // Check form inputs & Sanitize it.
     if (isset($_POST['remain_pts']) && isset($_POST['rss_type'])) {
-        $points = $_POST['remain_pts'];
-        $rss_type = $_POST['rss_type'];
+        // Valid points.
+        if ($validator($_POST['remain_pts'], 'number')) {
+            // Sanitize points.
+            $points = $validator->clean_input($_POST['remain_pts']);
+            // Resource type choice.
+            $rss_type = $_POST['rss_type'];
+        }
 
         // Check sent data are not empty.
         if (!empty($points) && !empty($rss_type)) {
