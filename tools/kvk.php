@@ -8,33 +8,17 @@ require_once "../autoloader.php";
 // Include output card file to import Card Function.
 require_once "output_card.php";
 
-// Resources types & Points per 1000 rss gathering.
-$rss_types = array(
-    "food" => 120,
-    "stone" => 180,
-    "timber" => 180,
-    "ore" => 240,
-    "gold" => 330
-);
-
 // Resourse amount you should gather.
 $rss_amount = 0;
 
-// Calculation Function 
-function calc($rss_types, $rss_type, $pts) {
-    global $rss_amount;
-    $rss_pts = $rss_types[$rss_type];
-    for ($i = 0; $i < $pts; $i += $rss_pts) {
-        $rss_amount += 1000;
-    }
-    return $rss_amount;
-}
-
+// Instanitiate validator.
 $validator = new Validator;
 
+// Error variables.
 $points_err = '';
 $rss_type_err = '';
 
+// Check request method.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Validate Points
     if (empty($_POST['remain_pts'])) {
@@ -56,9 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     // No Errors
     if (!$points_err && !$rss_type_err) {
-        $result = number_format(calc($rss_types, $rss_type, $points), 0, '', ',');
-        $res_txt = "<strong style='color: var(--bs-success)'>" . $result . "</strong>";
-        $output = card("Result", "You have to gather", "bg-dark", "text-white", "$res_txt $rss_type to finish the given points.");
+        // Instantiate calculator.
+        $calculator = new KvkCalculator($points, $rss_type);
+        // Resource amount.
+        $rss_amount = number_format($calculator->calculate(), 0, '', ',');
+
+        // Output Card.
+        $result = "<strong style='color: var(--bs-success)'>" . $rss_amount . "</strong> $rss_type";
+        $output = card("Result", "You have to gather", "bg-dark", "text-white", "$result to finish the given points.");
     }
 }
 
