@@ -8,15 +8,14 @@ require_once "../autoloader.php";
 // Include output card file to import Card Function.
 require_once "output_card.php";
 
-// Resourse amount you should gather.
-$rss_amount = 0;
-
 // Instanitiate validator.
 $validator = new Validator;
 
 // Error variables.
-$points_err = '';
-$rss_type_err = '';
+$points_err = $rss_type_err = '';
+
+// Calculation Variables
+$points = $rss_type = '';
 
 // Check request method.
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -163,5 +162,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <!-- Footer -->
     <?php require "../include/footer.php" ?>
 </body>
-
 </html>
